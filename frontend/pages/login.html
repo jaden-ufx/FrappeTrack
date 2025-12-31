@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Tracker Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+  <div class="bg-white shadow-lg rounded-lg w-full max-w-md p-8">
+    <!-- Logo / Title -->
+    <div class="text-center mb-6">
+        <img src="../assests/favicon.webp" alt="Time Tracker Logo" class="mx-auto w-24 h-24 mb-4">
+      <h1 class="text-3xl font-bold text-gray-800">Time Tracker</h1>
+      <p class="text-gray-500 mt-2">Login to your tracker account</p>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="space-y-6">
+      <div>
+        <label for="email" class="block text-gray-700 font-medium mb-2">API Key</label>
+        <input type="text" id="email" name="email" placeholder="API key" 
+               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+      </div>
+
+      <div>
+        <label for="password" class="block text-gray-700 font-medium mb-2">API Secret</label>
+        <input type="password" id="password" name="password" placeholder="********" 
+               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+      </div>
+
+      <!-- <div class="flex items-center justify-between">
+        <div>
+          <input type="checkbox" id="remember" class="mr-2">
+          <label for="remember" class="text-gray-600 text-sm">Remember me</label>
+        </div>
+        <a href="#" class="text-blue-500 text-sm hover:underline">Forgot password?</a>
+      </div> -->
+
+      <button type="submit" id="login" class="w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition-colors">
+        Login
+      </button>
+    </form>
+
+    <!-- Footer -->
+    <p class="text-center text-gray-500 text-sm mt-6">
+      Don't have an account? <a href="#" class="text-blue-500 hover:underline">Sign Up</a>
+    </p>
+  </div>
+
+  <script src="../js/login.js" ></script>
+
+</body>
+</html>
