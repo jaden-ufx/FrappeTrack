@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Time Tracker</title>
+  <link rel="stylesheet" href="../styles/tracker.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h2>Welcome Suraj</h2>
+  </div>
+
+  <div class="selection-row">
+    <select class="rect-dropdown">
+      <option value="">Project</option>
+    </select>
+
+    <select class="rect-dropdown">
+      <option value="">Task</option>
+    </select>
+
+    <select class="rect-dropdown">
+      <option value="">Timesheet</option>
+      <option value="">Create timesheet</option>
+    </select>
+  </div>
+
+  <div class="controls">
+    <button id="start" class="start">Start</button>
+    <button id="pause" class="pause">Pause</button>
+    <button id="stop" class="stop">Stop</button>
+  </div>
+
+  <div id="timer" class="timer">00:00:00</div>
+
+  <h4>Screenshot Preview</h4>
+  <div id="screenshots" class="screenshots"></div>
+
+</div>
+
+<script src="../js/renderer.js"></script>
+</body>
+</html>

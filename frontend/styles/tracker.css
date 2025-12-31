@@ -1,0 +1,119 @@
+/* Reset default button and body styles */
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.controls button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  /* border: none; */
+  border-color: #333;
+  font-size: 16px;
+  cursor: pointer;
+
+  /* Override OS button style */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-clip: padding-box;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Specific button colors */
+.start { background-color: #9cff9c; }
+.pause { background-color: #ffe58a; }
+.stop  { background-color: #ff9c9c; }
+
+/* Timer style */
+.timer {
+  background: #ffffff;
+  padding: 15px;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  font-family: monospace;
+}
+
+/* Screenshot section */
+.screenshots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.screenshots img {
+  width: 120px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Top dropdown row */
+.selection-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Rectangular dropdowns */
+.rect-dropdown {
+  flex: 1;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 14px;
+  background-color: #ffffff;
+  cursor: pointer;
+
+  /* Remove OS styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.rect-dropdown:focus {
+  outline: none;
+  border-color: #666;
+}

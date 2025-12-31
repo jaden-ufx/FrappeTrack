@@ -18,5 +18,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
 
   sendLoginSuccess: (data) => ipcRenderer.send('login-success', data),
 
-  getUserData: () => ipcRenderer.invoke('get-user-data')
+  getUserData: () => ipcRenderer.invoke('get-user-data'),
+
+  captureScreen: (data) => ipcRenderer.invoke("capture-screen", data)
 });
