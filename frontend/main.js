@@ -1,5 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, desktopCapturer } = require('electron');
 const path = require('path');
+const fs = require("fs");
 
 let mainWindow;
 let loggedInUser = null;
@@ -26,23 +27,39 @@ ipcMain.on('login-success', (event, data) => {
   mainWindow.loadFile('./pages/profile.html');
 });
 
-ipcMain.handle("capture-screen", async (event, { sessionId, imageIndex }) => {
+ipcMain.handle("capture-screen", async () => {
   const sources = await desktopCapturer.getSources({
     types: ["screen"],
     thumbnailSize: { width: 1280, height: 720 }
   });
 
-  const image = sources[0].thumbnail.toPNG();
+  const thumbnail = sources[0].thumbnail;
+  const image = thumbnail.toPNG();
 
-  // img/session-X path
-  const imgDir = path.join(__dirname, "..", "img", `session-${sessionId}`);
+  // ---- Date & Time ----
+  const now = new Date();
+
+  // Folder name: YYYY-MM-DD
+  const dateFolder = now.toISOString().split("T")[0];
+
+  // File name: HH-MM-SS.png
+  const timeString = now
+    .toTimeString()
+    .split(" ")[0]
+    .replace(/:/g, "-");
+
+  // screenshots/YYYY-MM-DD/
+  const imgDir = path.join(__dirname, "screenshots", dateFolder);
   fs.mkdirSync(imgDir, { recursive: true });
 
-  const filePath = path.join(imgDir, `image-${imageIndex}.png`);
+  // screenshots/YYYY-MM-DD/HH-MM-SS.png
+  const filePath = path.join(imgDir, `${timeString}.png`);
   fs.writeFileSync(filePath, image);
 
-  return sources[0].thumbnail.toDataURL(); // preview
+  // Return preview for renderer
+  return thumbnail.toDataURL();
 });
+
 
 // allow home page to read data
 ipcMain.handle('get-user-data', () => loggedInUser);
